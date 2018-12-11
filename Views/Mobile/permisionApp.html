@@ -1,0 +1,71 @@
+<div class="navbar">
+	<div class="navbar-inner notHomeBar">
+		<div class="left">
+			<a href="#" class="link back icon-only">
+				<i class="iconfont icon-xiangzuo"></i>返回
+			</a>
+		</div>
+		<div class="center">
+			权限审批
+		</div>
+		<div class="right">
+			
+		</div>
+		
+	</div>
+</div>
+<div class="pages">
+	<div class="page  with-subnavbar navbar-through" data-page="permisionApp" id="permisionApp">
+		<div class="page-content " >
+			<input type="hidden" value="0" id="proId"/>
+			<div class="memChoose" >
+				<div class="memCon">
+					<p>申请详情</p>
+					<div class="con">
+						<div class="row">
+							<div class="col-30">
+								申请时间
+							</div>
+							<div class="col-70 time">
+								
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-30">
+								权限描述
+							</div>
+							<div class="col-70 text">
+								
+							</div>
+						</div>
+					</div>
+					<div class="btn">
+						<button class="button button-big button-fill bg-red" onclick="noAgree()">不同意</button>
+						<button class="button button-big button-fill" onclick="agree()">同意</button>
+					</div>
+				</div>
+			</div>
+			<div class="labelItem row">
+				<div class="col-33">
+					申请人
+				</div>
+				<div class="col-33">
+					权限类型
+				</div>
+				<div class="col-33">
+					审批结果
+				</div>
+			</div>
+			<div class="itemList pull-to-refresh-content" data-ptr-distance="55">
+				<div class="pull-to-refresh-layer" style="position: absolute;">
+			      <div class="preloader"></div>
+			      <div class="pull-to-refresh-arrow"></div>
+			    </div>
+				<div class="con">
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>

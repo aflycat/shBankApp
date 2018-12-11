@@ -1,0 +1,2420 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GWServiceAPI.Net</name>
+    </assembly>
+    <members>
+        <member name="T:GWServiceAPI.Net.App_Start.RequestAuthorizeAttribute">
+            <summary>
+             自定义此特性用于接口的身份验证
+            </summary>
+        </member>
+        <member name="T:GWServiceAPI.Net.Controllers.AssetsController">
+            <summary>
+            资产维护
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.AssetsController.add_record">
+            <summary>
+            添加资产维护记录
+            </summary>
+            <remarks>
+            zcid:资产ID
+            record:维护信息
+            Files:图片文件
+            </remarks>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.AssetsController.remove_record(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除一条资产维护记录
+            </summary>
+            <param name="obj">obj.zcid:资产ID</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.AssetsController.setup_zcimg(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            设置资产图片
+            </summary>
+            <param name="obj">
+            obj.zcid:资产ID
+            obj.bs:base64图片数据
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.AssetsController.get_zcimg(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取资产图片
+            </summary>
+            <param name="obj">obj.zcid:资产ID</param>
+        </member>
+        <member name="T:GWServiceAPI.Net.Controllers.FileController">
+            <summary>
+            文件上传下载
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.FileController.Download(System.String)">
+            <summary>
+            下载文件
+            </summary>
+            <param name="filename">文件名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.FileController.Upload(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="data">json字符串(data:文件base64数据,fileType:文件后缀)</param>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.FtpController.get_GetDirectoryList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取文件夹列表
+            </summary>
+            <param name="obj">
+            ftpRemotePath 路径
+            ftpUserID 用户
+            ftpPassword 密码
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.FtpController.get_GetDirectoryContent(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取文件内容
+            </summary>
+            <param name="obj">
+            ftpRemotePath 路径
+            ftpUserID 用户
+            ftpPassword 密码
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.FtpHelper.Download(System.String,System.String,System.String)">
+            <summary>
+            下载
+            </summary>
+            <param name="filePath"></param>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.FtpHelper.GetDirectoryList(System.String,System.String,System.String)">
+            <summary>
+            获取当前目录下所有的文件夹列表(仅文件夹)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GWServiceAPI.Net.Controllers.JPushController">
+            <summary>
+            消息推送（极光）
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.JPushController.add_push_id(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            添加推送ID
+            </summary>
+            <param name="obj">
+            obj.id:推送终端唯一ID
+            obj.phoneName:手机名称
+            obj.phoneModel:手机型号
+            obj.phoneVersion:手机系统版本号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.JPushController.get_push_all">
+            <summary>
+            获取所有推送用户的信息
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.JPushController.send_push_msg(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            推送消息
+            </summary>
+            <param name="obj">
+            obj.id:唯一识别id，多个id用','号隔开
+            obj.message:消息
+            </param>
+        </member>
+        <member name="T:GWServiceAPI.Net.Controllers.PermisController">
+            <summary>
+            权限管理
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.PermisController.get_addin_module">
+            <summary>
+            获取系统功能组态页
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.PermisController.get_equip_pages">
+            <summary>
+            获取设备功能组态页
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.PermisController.get_user_item">
+            <summary>
+            获取当前用户所有权限
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.PermisController.add_role_system(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            添加Web系统页面访问权限
+            </summary>
+            <param name="obj">
+            obj.update:需要添加访问权限页面的数据
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.PermisController.add_role_custom(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            添加Web定制页面访问权限
+            </summary>
+            <param name="obj">
+            obj.update:需要添加访问权限页面的数据
+            </param>
+        </member>
+        <member name="T:GWServiceAPI.Net.Controllers.QRcodeController">
+            <summary>
+            二维码操作
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.QRcodeController.excu_qrcode(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            执行二维码数据
+            </summary>
+            <param name="obj">obj.qr_data:二维码数据</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.QRcodeController.create_qrcode">
+            <summary>
+            生成用户二维码
+            </summary>
+        </member>
+        <member name="T:GWServiceAPI.Net.Controllers.OtherController">
+            <summary>
+            其他
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.OtherController.reset_alarm(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            更改整张表的数据
+            </summary>
+            <param name="obj">
+            obj.change_row:更改行（每行数据用;号隔开，每列用,号隔开）
+            obj.tb_name:表名
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.OtherController.proc_cycle_comm(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            循环任务表的增加、删除、修改数据
+            </summary>
+            <param name="obj">
+            obj.change_row:数据
+            obj.tb_name:表名
+            obj.act_type:动作类型
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.OtherController.scene_editor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            更改整个场景编辑的数据
+            </summary>
+            <param name="obj">obj.change_row:整表数据</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.OtherController.upload">
+            <summary>
+            文件上传
+            </summary>
+            <remarks>address:服务器文件地址</remarks>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.OtherController.debug_run_sql(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            动态生成SQL查询接口
+            </summary>
+            <param name="obj">
+            obj.file_name:参数说明
+            obj.controller:控制器名
+            obj.sqls:SQL语句
+            obj.api_name:接口名
+            obj.version:版本号（若为空，默认1.0）
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.OtherController.debug_run_code">
+            <summary>
+            动态生成代码接口
+            </summary>
+            <remarks>
+            file_name:动态生成的文件名（若为空，则系统生成随机名）
+            version:版本号（若为空，默认1.0）
+            assemblies:引用第三方类库（多个类库用','号隔开）
+            </remarks>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.OtherController.debug_run_cs">
+            <summary>
+            动态编译cs文件
+            </summary>
+            <remarks>
+            file_name:动态生成的文件名（若为空，则系统生成随机名）
+            sys_lib:系统类库（多个类库用','号隔开）
+            bin_lib:引用第三方类库（多个类库用','号隔开）
+            </remarks>
+        </member>
+        <member name="T:GWServiceAPI.Net.Controllers.ApiAuthController">
+            <summary>
+            为 API 控制器定义属性和方法（身份验证）
+            </summary>
+        </member>
+        <member name="T:GWServiceAPI.Net.Controllers.VideoController">
+            <summary>
+            视频控制
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.VideoController.video_config">
+            <summary>
+            获取所有视频配置
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.VideoController.video_infor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取视频设备信息
+            </summary>
+            <param name="obj">obj.equip_no:设备号</param>
+        </member>
+        <member name="T:GWServiceAPI.Net.Controllers.VoiceController">
+            <summary>
+            语音控制
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.VoiceController.voice_byte(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            语音控制命令（Byte数据类型）
+            </summary>
+            <param name="obj">obj.data_byte:语音数据</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.VoiceController.voice_string(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            语音控制命令（字符串数据类型）
+            </summary>
+            <param name="obj">obj.data_string:语音数据</param>
+        </member>
+        <member name="T:GWServiceAPI.Net.Controllers.RealController">
+            <summary>
+            设备数据
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.equip_tree">
+            <summary>
+            获取所有设备的节点列表
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.equip_state">
+            <summary>
+            获取所有设备的实时状态
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.equip_item_state(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取当前设备的所有测点状态
+            </summary>
+            <param name="obj">obj.equip_no:设备号</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.equip_ycp_state(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取当前设备ycp测点的状态
+            </summary>
+            <param name="obj">
+            obj.equip_no:设备号
+            obj.ycp_no:测点号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.equip_yxp_state(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取当前设备yxp测点的状态
+            </summary>
+            <param name="obj">
+            obj.equip_no:设备号
+            obj.yxp_no:测点号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.expre_eval(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            执行表达式(仅支持管理员)
+            </summary>
+            <param name="obj">
+            obj.expression:表达式字符串
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.setup(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            设备控制命令（设置按钮）
+            </summary>
+            <param name="obj">
+            obj.equip_no:设备号
+            obj.main_instr:设备属性1
+            obj.mino_instr:设备属性2
+            obj.value:设备值
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.setup_a(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            设备控制命令（设置按钮）
+            </summary>
+            <param name="obj">
+            obj.equip_no:设备号
+            obj.set_no:设置号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.setup_b(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            设备控制命令（设置按钮）
+            </summary>
+            <param name="obj">
+            obj.equip_no:设备号
+            obj.set_no:设置号
+            obj.value:设置值
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.setup_c(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            设备控制命令（设置按钮）
+            </summary>
+            <param name="obj">
+            obj.equip_no:设备号
+            obj.main_instr:设备属性1
+            obj.mino_instr:设备属性2
+            obj.value:设备值
+            obj.type:类型
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.setup_d(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            设备控制命令（设置按钮）
+            </summary>
+            <param name="obj">
+            obj.equip_no:设备号
+            obj.main_instr:设备属性1
+            obj.mino_instr:设备属性2
+            obj.value:设备值
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.get_equip(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取设备配置信息
+            </summary>
+            <param name="obj">obj.equip_nos:设备号</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.get_ycp(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取模拟量配置信息
+            </summary>
+            <param name="obj">obj.equip_nos:设备号</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.get_ycp_single(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取单个测点的模拟量配置信息
+            </summary>
+            <param name="obj">
+            obj.equip_no:设备号
+            obj.ycp_no:测点号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.get_yxp(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取状态量配置信息
+            </summary>
+            <param name="obj">
+            obj.equip_nos:设备号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.get_yxp_single(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取单个测点的状态量配置信息
+            </summary>
+            <param name="obj">
+            obj.equip_no:设备号
+            obj.yxp_no:测点号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.get_setparm(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取设置配置信息
+            </summary>
+            <param name="obj">
+            obj.equip_nos:设备号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.get_setparm_single(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取单个测点的设置配置信息
+            </summary>
+            <param name="obj">
+            obj.equip_no:设备号
+            obj.set_no:设置号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.get_equip_column">
+            <summary>
+            获取设备配置列名信息
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.get_ycp_column">
+            <summary>
+            获取模拟量配置列名信息
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.get_yxp_column">
+            <summary>
+            获取状态量配置列名信息
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.get_setparm_column">
+            <summary>
+            获取设置配置列名信息
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.update_equip(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            修改设备配置信息
+            </summary>
+            <param name="obj">obj.update:需要更改的数据[{设备号,字段名,更改的值},{设备号,字段名,更改的值}]</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.update_ycp(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            修改模拟量配置信息
+            </summary>
+            <param name="obj">obj.update:需要更改的数据[{设备号,测点号,字段名,更改的值},{设备号,测点号,字段名,更改的值}]</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.update_yxp(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            修改状态量配置信息
+            </summary>
+            <param name="obj">obj.update:需要更改的数据[{设备号,测点号,字段名,更改的值},{设备号,测点号,字段名,更改的值}]</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.update_setparm(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            修改设置配置信息
+            </summary>
+            <param name="obj">obj.update:需要更改的数据[{设备号,设置号,字段名,更改的值},{设备号,设置号,字段名,更改的值}]</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.RealController.get_ycp_history(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            ycp历史数据
+            </summary>
+            <param name="obj">
+            obj.begin_time:开始时间
+            obj.end_time:结束时间
+            obj.equip_no:设备号
+            obj.ycp_no:测点号
+            </param>
+        </member>
+        <member name="T:GWServiceAPI.Net.Controllers.EventController">
+            <summary>
+            报警事件
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.alarm_config">
+            <summary>
+            获取事件的报警配置
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.real_evt(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取当前系统报警的实时事件
+            </summary>
+            <param name="obj">obj.levels:报警分类，多个值请用逗号隔开</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.real_evt_count(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取当前实时报警事件的总数
+            </summary>
+            <param name="obj">obj.levels:报警分类，多个分类请用';'符号隔开，多个值请用逗号隔开</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.confirm_evt(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            确认当前报警事件
+            </summary>
+            <param name="obj">
+            obj.msg:处理意见
+            obj.shortmsg:是否发送短信
+            obj.tel:发送人的电话
+            obj.evtname:事件名
+            obj.time:事件时间
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_equip_evt(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            查询设备事件
+            </summary>
+            <param name="obj">
+            obj.times:时间，起始时间,结束时间;(当只有一个时间的时候，为起始时间)
+            obj.equip_no_list:设备号，多个数据时请用“,”号隔开
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_set_evt(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            查询设置事件
+            </summary>
+            <param name="obj">
+            obj.times:时间，起始时间,结束时间;(当只有一个时间的时候，为起始时间)
+            obj.equip_no_list:设备号，多个数据时请用“,”号隔开
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_sys_evt(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            查询系统事件(仅支持管理员)
+            </summary>
+            <param name="obj">obj.times:时间，起始时间,结束时间;(当只有一个时间的时候，为起始时间)</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_today_meet_num(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取今日会议的个数
+            </summary>
+            <param name="obj">
+                time 时间
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_today_meet_simple(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取今日通过的会议
+            </summary>
+            <param name="obj">
+                time 时间
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_appMet(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取所有会议有权限(pc)管理员全部，其他获取本身创建
+            </summary>
+            <param name="obj"> 
+            workNo 用户名
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_meet_plan_search(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            会议安排搜索，权限，管理员看到全部，非管理员看到自己创建(pc)
+            </summary>
+            <param name="obj"> 
+            workNo 用户名
+            keyWord 关键词
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_meet(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取指定时间内的所有审批的会议的信息
+            </summary>
+            <param name="obj"> 
+            startTime 开始时间
+            endTime 结束时间
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_meeting_search(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取所有会议记录（pc）会议记录查询
+            </summary>
+            <param name="obj"> 
+            startTime 开始时间
+            endTime 结束时间
+            type 0时间查询， 1申请人,2类型查询，3联系人，4会议室
+            meetType 0培训，1一级，2二级，3其他
+            keyTxt 查询关键字
+            workNo 工号 
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_meet_mark(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取本次会议的会议签到信息
+            </summary>
+            <param name="obj"> 
+            id 会议id
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_user_meeting(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取与登录人员有关的审批过的未结束会议
+            </summary>
+            <param name="obj"> 
+            userName 用户名
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_no_app_meeting">
+            <summary>
+            获取全部的未审批的会议（pc)
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_app_search(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取搜索结果未审批的会议 会议审批(pc)
+            </summary>
+            <param name="obj"> 
+            keyWord 关键词，内容，联系人，联系电话，申请人
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_agree_meeting">
+            <summary>
+            获取全部的已审批同意的未结束会议会议（pc)
+            </summary>
+            <summary>
+            会议的审批
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_this_meet_result(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            会议审批（pc)
+            </summary>
+            <param name="obj">
+               room 会议室
+               result 审批结果,同意为1,不同意为2
+               id 会议id              
+               reason 原因
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.add_meet(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            会议申请
+            </summary>
+            <param name="obj">
+               memberId 申请人
+               others 与会人员
+               begintime 会议开始时间
+               endTime 会议结束时间
+               meetType 会议类型
+               contact 联系人
+               contactPhone 联系人手机
+               service 会议服务
+               content 会议内容
+               topic 会议主题
+               isLeader 是否有领导参加
+               mark 领导备注
+               notify 通知方式
+               otherMem 其他人员
+               remark 会议备注
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_leader">
+            <summary>
+            获取支行领导
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_this_meeting(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取当前会议
+            </summary>
+            <param name="obj">
+               meetingId 会议id
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_meet_serve(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取会议提供的服务
+            </summary>
+            <param name="obj">
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_new_meet_serve(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            新增会议服务(pc)
+            </summary>
+            <param name="obj">
+            text 服务名称
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.del_meet_serve(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除会议服务(pc)
+            </summary>
+            <param name="obj">
+            id id
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.upd_meet_serve(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            更新会议服务(pc)
+            </summary>
+            <param name="obj">
+            id id
+            text 服务名称
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_serve_name(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据id获取会议服务
+            </summary>
+            <param name="obj">
+            id  服务
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_today_reser(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取今日的全部预约
+            </summary>
+            <param name="obj">
+               time 时间
+               workNo
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_today_reser_search(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            搜索今日的全部预约
+            </summary>
+            <param name="obj">
+               keyWord 时间 来访人，被访人，联系电话
+               time 时间 
+               workNo 工号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.add_reservation(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            申请预约
+            </summary>
+            <param name="obj">
+               name 访客名
+               time 来访时间
+               phone 联系方式
+               license 证件号
+               events 来访事由
+               floor 访问楼层
+               followUp 随访人数
+               memberId 被访人证件号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_arrive_time(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            更改本次预约状态和时间
+            </summary>
+            <param name="obj">
+               id 预约id
+               time 实际到访时间
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.upd_visitor_status(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            更改预约状态
+            </summary>
+            <param name="obj">
+               id 预约id
+               status 改变的状态
+               visitTime 实际到访时间
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_this_visitInfor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取某次访客的详细信息
+            </summary>
+            <param name="obj">
+               id 访客预约id
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_his_visitInfor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取某个日期段的访客记录(pc)
+            </summary>
+            <param name="obj">
+              start 开始日期
+              end 结束日期
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_his_vic_search(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据关键字获取访客记录(pc) 历史访客搜索
+            </summary>
+            <param name="obj">
+              start 开始日期
+              end 结束日期
+              type 0日期 1来防人 2被访人
+              keyWord 关键字
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_this_visitInfor">
+            <summary>
+            获取全部的员工（姓名卡号）
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_mem_infor">
+            <summary>
+            获取全部的员工信息（除密码）(pc)
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_mem_infor_page(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取全部的员工信息（除密码）(pc)分页
+            </summary>
+            <param name="obj">
+              pageNum 页数
+              pageSize 数量
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_admin_infor">
+            <summary>
+            获取所有的管理员信息(pc)
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_admin_infor_search(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取所有的管理员信息-搜索结果(pc)
+            </summary>
+            <param name="obj">
+              keyWord 关键字
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.del_admin_infor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除管理员(pc)
+            </summary>
+            <param name="obj">
+              id id
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.add_admin(Newtonsoft.Json.Linq.JObject)">
+             <summary>
+            添加管理员(pc)
+             </summary>
+             <param name="obj">
+               type 系统0：一卡通1：门禁2：梯控3：更衣柜4：消费5：打印机6：会议7：访客
+               workNo 工号
+               username 登录名
+             </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.edict_admin(Newtonsoft.Json.Linq.JObject)">
+             <summary>
+            编辑管理员(pc)
+             </summary>
+             <param name="obj">
+               type 系统0：一卡通1：门禁2：梯控3：更衣柜4：消费5：打印机6：会议7：访客
+              id id
+             </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_meet_sign(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取会议签到信息
+            </summary>
+            <param name="obj">
+               id 会议id
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_meet_sign(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            会议签到
+            </summary>
+            <param name="obj">
+             id 会议id
+             userId 人员id
+              isNull 是否有人签到,0无人签到,1有人签到
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_mem_infor_work(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据工号获取用户信息
+            </summary>
+            <param name="obj">
+               workNo 工号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_mem_infor_pc(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据工号获取用户信息(pc)
+            </summary>
+            <param name="obj">
+               workNo 工号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_userName">
+            <summary>
+            获取客户端所有登录名(pc)
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_gyg_sex(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取男女更衣柜的分布信息
+            </summary>
+            <param name="obj">
+              type 0,男;1女
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_unserd_gyg(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取未分配的更衣柜
+            </summary>
+            <param name="obj">
+              type 0,男;1女
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.upd_gyg_sta(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            更改更衣柜的分配状态
+            </summary>
+            <param name="obj">
+             id id
+             status 0未分配，1分配
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.upd_mem_gyg(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            进行员工更衣柜的操作（pc）
+            </summary>
+            <param name="obj">
+             deal 0进行授权1进行修改2进行撤权
+             cardNo 卡号
+             gyg 更衣柜
+             oldGyg 旧更衣柜
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_sys_auth_num(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取一卡通系统权限分布(pc)
+            </summary>
+            <param name="obj">
+             sys 系统 mjStatus gygStatus dyjStatus xfStatus tkStatus
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_gyg_his(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取更衣柜事件某日期段(pc)
+            </summary>
+            <param name="obj">
+             start 开始日期
+             end 结束日期
+             name 名字
+             cardNo 卡号
+             type 0时间 1姓名 2卡号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_depart(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取全部都得部门分类
+            </summary>
+            <param name="obj">
+             
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_mem_dep(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据部门获取员工
+            </summary>
+            <param name="obj">
+             department 部门,根据获取部门接口
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_mem_dep_mul(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据部门获取员工(pc)
+            </summary>
+            <param name="obj">
+             department 部门,根据获取部门接口,多个部门用','连接
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_dep_leader(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据部门获取部门领导
+            </summary>
+            <param name="obj">
+             department 部门,根据获取部门接口
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_depar_proPer(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取该部门下的所有权限申请
+            </summary>
+            <param name="obj">
+             leaderNo 领导 的工号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_sys_auth(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            管理员获取一卡通下的权限申请(pc)
+            </summary>
+            <param name="obj">
+             sys 系统id 0：一卡通1：门禁2：梯控3：更衣柜4：消费5：打印机6：会议7：访客
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.upd_mj_app(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            管理员审批门禁申请(pc)
+            </summary>
+            <param name="obj">
+             id 权限申请id
+             mj 门禁分组id
+             cardNo 卡号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_depar_proper_num(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取该部门下的所有未审批权限申请的个数
+            </summary>
+            <param name="obj">
+             leaderNo 领导 的工号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_proPer(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取该管理员的管理的系统的已同意权限申请
+            </summary>
+            <param name="obj">
+             type 管理员类型
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_gyg">
+            <summary>
+            获取所有非冻结更衣柜权限员工信息(pc)
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_gyg_search(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取所有非冻结更衣柜权限员工信息——搜索结果(pc)
+            </summary>
+            <param name="obj">
+             keyWord 管理员类型
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_dyj">
+            <summary>
+            获取所有非冻结打印机权限员工信息(pc)
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_dyj_search(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取所有非冻结打印机权限员工信息——搜索(pc)
+            </summary>
+            <param name="obj">
+            keyWord 关键字
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.upd_dyj_sta(Newtonsoft.Json.Linq.JObject)">
+             <summary>
+            进行员工打印机的权限操作(pc)
+             </summary>
+             <param name="obj">
+             cardNo 卡号
+             deal 0 修改 1授权 2撤权
+             dyj 0 冻结 1 可用
+             </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_dyj_his(Newtonsoft.Json.Linq.JObject)">
+             <summary>
+            获取指定日期段里的打印机事件(pc)
+             </summary>
+             <param name="obj">
+             start 开始日期
+             end  结束日期
+             type 0时间 1名字 2卡号
+             name 名字
+             cardNo 卡号
+             </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_infor_author(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取个人信息及其权限
+            </summary>
+            <param name="obj">
+             workNo 工号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_mark_sys(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取系统的历史事件
+            </summary>
+            <param name="obj">
+             workNo 工号
+             end 结束时间
+             start 开始时间
+             sys 系统 0门禁系统 1更衣柜系统 2打印机系统 3消费系统
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_author_app(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            添加权限申请记录
+            </summary>
+            <param name="obj">
+             workNo申请人
+             depart 部门
+             subAuth 权限描述
+             sys 申请的系统
+             subTime 申请时间
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_meeting_room_name(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取指定会议室名称
+            </summary>
+            <param name="obj">
+                roomId 会议室主键
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_today_meet_room_list(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取指定会议室今日通过的会议 PC
+            </summary>
+            <param name="obj">
+                roomId 会议室主键
+            </param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:GWServiceAPI.Net.Controllers.EventController.get_author_list_loeader(Newtonsoft.Json.Linq.JObject)" -->
+        <!-- Badly formed XML comment ignored for member "M:GWServiceAPI.Net.Controllers.EventController.get_author_list(Newtonsoft.Json.Linq.JObject)" -->
+        <!-- Badly formed XML comment ignored for member "M:GWServiceAPI.Net.Controllers.EventController.get_author_list_search(Newtonsoft.Json.Linq.JObject)" -->
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_pro_author(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            权限申请审批
+            </summary>
+            <param name="obj">
+             id 申请记录审批
+             res 0不同意 1同意
+             leadNo 审批人
+            </param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:GWServiceAPI.Net.Controllers.EventController.get_author_list_loeader_search(Newtonsoft.Json.Linq.JObject)" -->
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_menu_day(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取日期段内的菜单
+            </summary>
+            <param name="obj">
+            start 开始日期
+            end 结束日期
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_menu(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            菜单的编辑新增
+            </summary>
+            <param name="obj">
+            deal 0编辑 1新增
+            name 菜单内容
+            time 日期
+            id 
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_consum">
+            <summary>
+            获取所有未冻结的消费系统
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_consum_search(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取所有未冻结的消费系统搜索
+            </summary>
+            <param name="obj">
+             keyWord 关键字
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_consum_author(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            消费系统授权操作
+            </summary>
+            <param name="obj">
+             deal 1编辑 0授权 2撤权
+             cardNo 卡号
+             money 余额
+             val 授权情况
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_xf_his(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取所有消费的历史记录
+            </summary>
+            <param name="obj">
+            type 获取类型 0时间 1卡号 2姓名
+            star 开始时间
+            end 结束时间
+            keyWord关键字
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_meeting_appraise(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            评价本次会议
+            </summary>
+            <param name="obj">
+                id 会议id
+                comment 评语 
+                score 内容+分数
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_meet_end(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            结束会议
+            </summary>
+            <param name="obj">
+                id 会议id
+                memId 申请人id
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_meet_finished(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            结束会议pc
+            </summary>
+            <param name="obj">
+                id 会议id
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.upd_file_name(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            更新会议纪要的文件名
+            </summary>
+            <param name="obj">
+                id 会议id
+                name 文件名称多个用“,”连接
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_file_name(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取会议纪要的文件名
+            </summary>
+            <param name="obj">
+                id 会议id
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_floor">
+            <summary>
+            获取楼层
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_floor_mj(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据楼层获取门禁列表
+            </summary>
+            <param name="obj">
+               floor 楼层数
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_mj_auth">
+            <summary>
+            获取人员门禁列表（除冻结pc）
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_mj_auth_search(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取人员门禁列表-搜索结果（除冻结pc）
+            </summary>
+            <param name="obj">
+             keyWord 关键字  
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.upd_mj_auth(Newtonsoft.Json.Linq.JObject)">
+             <summary>
+            修改人员的门禁权限(pc)
+             </summary>
+             <param name="obj">
+              cardNo 卡号  
+              mj mjId
+              deal 0修改1授权2撤权
+             </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_fir_item(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取最顶级分组(pc)
+            </summary>
+            <param name="obj">
+             parentId 父元素id  0 
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_mj_sce_group">
+            <summary>
+            获取门禁二级分组(pc)
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_third_item(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取门禁二级分组下的子项(pc)
+            </summary>
+            <param name="obj">
+             id 二级分组的id  
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.del_thir_item(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除二级分组下的某一个子项(pc)
+            </summary>
+            <param name="obj">
+             id 子项id  
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.upd_sec_name(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            修改二级分组的名称(pc)
+            </summary>
+            <param name="obj">
+             id 二级分组的id
+             name 名字
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.del_sec_item(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除二级分组(pc)
+            </summary>
+            <param name="obj">
+             id 二级分组的id
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_mj_eq">
+            <summary>
+            所有门禁设备信息(pc)
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_mj_eq(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            控制门禁设备（暂时接口）
+            </summary>
+            <param name="obj">
+              id id
+              deal 操作 1开门2关门3门常开4门常关
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_mj_eq_search(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            控制门禁设备搜索（暂时接口）
+            </summary>
+            <param name="obj">
+             keyTxt
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_wardrobe">
+            <summary>
+            获取全部的更衣柜
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_all_wardrobe_search(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取全部的更衣柜(搜索)
+            </summary>
+            <param name="obj">
+             keyTxt 关键字
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_wardrobe_control(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            更衣柜开门接口(暂时)
+            </summary>
+            <param name="obj">
+             id 更衣柜id
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_mj_group(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            添加门禁分组(pc)
+            </summary>
+            <param name="obj">
+              name 分组名称
+              mjCode 门禁编码
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.add_group_item(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            门禁分组新增子项
+            </summary>
+            <param name="obj">
+              id 门禁分组id
+              mjCode 新增子项 “,”连接
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_mj_his(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取门禁历史事件(pc)
+            </summary>
+            <param name="obj">
+              start 开始时间
+              end 结束时间
+              name 姓名
+              cardNo 卡号
+              type 0时间 1姓名 2卡号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_sys_admin(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取指定系统的管理员
+            </summary>
+            <param name="obj">
+             sys 系统
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_admin(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            判断用户是不是该系统的管理员
+            </summary>
+            <param name="obj">
+             sys 系统
+             workNo 工号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_apraise_list(Newtonsoft.Json.Linq.JObject)">
+            <summary>获取可评价评价选项
+            </summary>
+            <param name="obj">
+             
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_room_infor(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取所有会议室或者单个会议室
+            </summary>
+            <param name="obj">
+              id 会议室id
+              isAll all:获取全部,不需要传递id,one获取单个,
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_new_meetng_room(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            增加会议室
+            </summary>
+            <param name="obj">
+              id 编号
+              name 名字
+              floor 楼层
+              space 面积
+              capacity 容纳人数
+              ipAddr ip
+              propName 物业人
+              propPhone 物业联系方式
+              propMail 物业邮箱
+              service 提供服务
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.upd_meetng_room(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            编辑会议室
+            </summary>
+            <param name="obj">
+              id 编号
+              name 名字
+              floor 楼层
+              space 面积
+              capacity 容纳人数
+              ipAddr ip
+              propName 物业人
+              propPhone 物业联系方式
+              propMail 物业邮箱
+              service 提供服务
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.del_meetng_room(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除会议室(PC)
+            </summary>
+            <param name="obj">
+              id 编号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_permision_status(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取员工的权限状态
+            </summary>
+            <param name="obj">
+              id 员工卡号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_permision_detail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取员工的详细权限
+            </summary>
+            <param name="obj">
+              id 员工卡号
+              type 获取权限的类型 0门禁;1更衣柜;2打印机;3消费;4梯控
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_pro_persision(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            权限申请
+            </summary>
+            <param name="obj">
+              workNo 申请人工号
+              sysId 权限类型0：门禁1：梯控2：更衣柜3：打印机4：消费
+              subTime 提交时间
+              subAuth 权限描述
+              leaderNo 部门领导工号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.login_sh_bank(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            登陆
+            </summary>
+            <param name="obj">
+            userName 用户名
+            userPass 密码
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_today_meet_simple_room(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取指定会议室今日通过的会议
+            </summary>
+            <param name="obj">
+                time 时间
+                roomId 会议室主键
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.get_asset_list">
+            <summary>
+            获取资产列表
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.add_assets_list(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            添加资产记录
+            </summary>
+            <param name="obj">
+            assetName财产名字
+            assetType财产分类
+            branch网点或科室
+            type 资产类型
+            canUse是否可用
+            count数量
+            department部门
+            id财产编号
+            isUsing是否闲置
+            assetId 资产编号
+            keepPlace保存地点
+            keeper保存者
+            model型号
+            orginalVal原值
+            purchase采购单号
+            remark备注
+            startUse启用时间
+            unit单位
+            rfCard rf卡号
+            rfTime发卡时间
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.upd_assets_canuse(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            资产报废操作
+            </summary>
+            <param name="obj">
+            id 财产编号
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.set_err_log(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            将错误写入日志
+            </summary>
+            <param name="obj">
+               err 错误
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.CreateQRCode(System.String)">
+            <summary>
+            生成彩色二维码
+            </summary>
+            <param name="content">二维码内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.QrCodeVertical(System.Int32,System.Int32)">
+            <summary>
+            设置二维码图片颜色
+            </summary>
+            <param name="width"></param>
+            <param name="heigth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.EventController.WriteLog(System.String)">
+            <summary>
+            写入日志，默认c盘
+            </summary>
+            <param name="strLog"></param>
+        </member>
+        <member name="T:GWServiceAPI.Net.Controllers.ServerController">
+            <summary>
+            服务
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.ServerController.getkey(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取key
+            </summary>
+            <param name="obj">
+            obj.username:用户名
+            obj.userpwd:密码
+            </param>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.ServerController.version">
+            <summary>
+            获取AlarmCenterAPI程序版本
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.ServerController.auth_name">
+            <summary>
+            获取软件授权名称
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.Controllers.ServerController.version_adapt(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            适配AlarmCenter服务
+            </summary>
+            <param name="obj">obj.fromPath:地址</param>
+        </member>
+        <member name="T:GWServiceAPI.Net.LibClass.ApiCode">
+            <summary>
+            API Code代码
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code200(GWServiceAPI.Net.Models.DataResult,System.String)">
+            <summary>
+            OK
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code200(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            OK
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code201(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            操作成功
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code1000(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            无法连接服务器
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code1001(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            appkey已过期
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code1002(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            用户名或密码错误
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code1003(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            参数值不能为空
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code1004(GWServiceAPI.Net.Models.DataResult,System.String)">
+            <summary>
+            其他错误
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code1005(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            当前用户无权限访问
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code1006(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            服务器未能识别语音
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code1007(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            认证参数不全
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code1008(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            认证参数有误
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code1010(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            未找到AlarmCenter程序目录
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code1011(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            无法读取到程序版本
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code1013(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            tcp连接未能匹配到服务
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ApiCode.Code1014(GWServiceAPI.Net.Models.DataResult)">
+            <summary>
+            AlarmCenter服务未启动或服务运行出错
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.DatatableAndJson.ToJson(System.Data.DataTable)">
+            <summary>
+            DataTable 对象 转换为Json 字符串
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.DatatableAndJson.ToDataTable(System.String)">
+            <summary>
+            Json 字符串 转换为 DataTable数据集合
+            </summary>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GWServiceAPI.Net.LibClass.DES">
+            <summary>
+            字符串加密解密
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.DES.EncryptDES(System.String,System.String)">
+            <summary>
+            DES加密字符串
+            </summary>
+            <param name="encryptString">待加密的字符串</param>
+            <param name="encryptKey">加密密钥,要求为8位</param>
+            <returns>加密成功返回加密后的字符串，失败返回空串</returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.DES.DecryptDES(System.String,System.String)">
+            <summary>
+            DES解密字符串
+            </summary>
+            <param name="decryptString">待解密的字符串</param>
+            <param name="decryptKey">解密密钥,要求为8位,和加密密钥相同</param>
+            <returns>解密成功返回解密后的字符串，失败返回空串</returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.DES.GetGuidKeys">
+            <summary>
+            获取密钥
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.DES.GetGuidKeys(System.String)">
+            <summary>
+            解密密钥
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:GWServiceAPI.Net.LibClass.AssetsLib">
+            <summary>
+            资产维护
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.AssetsLib.AddWeihuRecord4ZC(System.String,System.String,System.Collections.Generic.List{System.Byte[]})">
+            <summary>
+            添加资产维护记录
+            </summary>
+            <param name="zcid">资产ID</param>
+            <param name="record">维护信息</param>
+            <param name="fileList">图片文件</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.AssetsLib.RemoveWeihuRecord4ZC(System.String)">
+            <summary>
+            删除一条资产维护记录
+            </summary>
+            <param name="zcid">资产ID</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.AssetsLib.SendImageToSvr(System.String,System.String)">
+            <summary>
+            设置资产图片
+            </summary>
+            <param name="zcid">资产ID</param>
+            <param name="bs">base64图片数据</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.AssetsLib.GetImageFromSvr(System.String)">
+            <summary>
+            获取资产图片
+            </summary>
+            <param name="zcid">资产ID</param>
+        </member>
+        <member name="T:GWServiceAPI.Net.LibClass.UpdateLib">
+            <summary>
+            在线更新
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.UpdateLib.CheckUpdate">
+            <summary>
+            检查更新
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.UpdateLib.OnlineUpdate(System.String)">
+            <summary>
+            在线更新
+            </summary>
+            <param name="version"></param>
+            <returns></returns>
+        </member>
+        <member name="T:GWServiceAPI.Net.LibClass.JPushLib">
+            <summary>
+            消息推送（极光）
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.JPushLib.PushInit">
+            <summary>
+            初始化消息推送
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.JPushLib.AddPushID(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            添加推送ID
+            </summary>
+            <param name="id">推送终端唯一ID</param>
+            <param name="phoneName">手机名称</param>
+            <param name="phoneModel">手机型号</param>
+            <param name="phoneVersion">手机系统版本号</param>
+            <param name="auth">认证信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.JPushLib.GetPushAll">
+            <summary>
+            获取所有推送用户的信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.JPushLib.SendMessageForID(System.String,System.String,System.String)">
+            <summary>
+            推送消息
+            </summary>
+            <param name="ids">id，多个用','号隔开</param>
+            <param name="message">消息</param>
+            <param name="auth">认证信息</param>
+            <returns></returns>
+        </member>
+        <member name="F:GWServiceAPI.Net.LibClass.Libs.meth">
+            <summary>
+            公共方法
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Libs.ErrorLog(System.String,System.String)">
+            <summary>
+            错误日志
+            </summary>
+            <param name="error">错误信息</param>
+            <param name="path">地址</param>
+        </member>
+        <member name="T:GWServiceAPI.Net.LibClass.QRcodeLib">
+            <summary>
+            二维码操作
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.QRcodeLib.ExecuteQRcode(System.String)">
+            <summary>
+            执行二维码数据
+            </summary>
+            <param name="data">二维码数据</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.QRcodeLib.CreateRichScan(System.String)">
+            <summary>
+            生成用户二维码
+            </summary>
+            <param name="auth">认证参数</param>
+        </member>
+        <member name="T:GWServiceAPI.Net.LibClass.OtherLib">
+            <summary>
+            其他
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.OtherLib.ResetAlarmTab(System.String,System.String)">
+            <summary>
+            更改整张表的数据
+            </summary>
+            <param name="data">更改行，（每行数据用;号隔开，每列用,号隔开）</param>
+            <param name="tableName">表名</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.OtherLib.CommGWProcCycle(System.String,System.String,System.String)">
+            <summary>
+            循环任务表的增加、删除、修改数据
+            </summary>
+            <param name="data">数据</param>
+            <param name="tableName">表名</param>
+            <param name="actType">动作类型</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.OtherLib.SceneEditor(System.String)">
+            <summary>
+            更改整个场景编辑的数据
+            </summary>
+            <param name="data">整表数据</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.OtherLib.DebugRunSQL(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            动态生成SQL查询接口
+            </summary>
+            <param name="file_name">动态生成的文件名（若为空，则系统生成随机名）</param>
+            <param name="controller">控制器名</param>
+            <param name="sqls">sql，（多个语句用','号隔开）</param>
+            <param name="api_name">接口名（多个名称用','号隔开）</param>
+            <param name="version">版本号（若为空，默认1.0）</param>
+            <param name="auth">认证参数</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.OtherLib.DebugRunCode(System.String,System.String[],System.String,System.String,System.String)">
+            <summary>
+            动态生成代码接口
+            </summary>
+            <param name="file_name">动态生成的文件名（若为空，则系统生成随机名）</param>
+            <param name="code">代码</param>
+            <param name="version">版本号（若为空，默认1.0）</param>
+            <param name="assemblies">引用第三方类库（多个类库用','号隔开）</param>
+            <param name="auth">认证参数</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.OtherLib.CMDRunCSharp(System.String,System.String,System.String,System.String,System.Web.HttpFileCollection)">
+            <summary>
+            动态编译cs文件
+            </summary>
+            <param name="file_name"></param>
+            <param name="sys_lib"></param>
+            <param name="bin_lib"></param>
+            <param name="auth"></param>
+            <param name="files"></param>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.OtherLib.LoadLibrary(System.String,System.String,System.String)">
+            <summary>
+            加载动态库
+            </summary>
+            <param name="sys_lib">系统动态库</param>
+            <param name="bin_lib">第三方动态库</param>
+            <param name="path">地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.OtherLib.CompilerDll(System.String,System.String)">
+            <summary>
+            引入第三方动态库
+            </summary>
+            <param name="assemblies">类库名（多个类库用','号隔开，例如System.dll*0,0表示系统公共动态库，1表示当前bin目录下动态库）</param>
+            <param name="path">地址</param>
+            <returns></returns>
+        </member>
+        <member name="T:GWServiceAPI.Net.LibClass.VideoLib">
+            <summary>
+            视频控制
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.VideoLib.VideoConfigs(System.String)">
+            <summary>
+            获取所有视频配置
+            </summary>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.VideoLib.VideoInfor(System.String,System.String)">
+            <summary>
+            获取视频设备信息
+            </summary>
+            <param name="equip_no">设备号</param>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="T:GWServiceAPI.Net.LibClass.VoiceLib">
+            <summary>
+            语音控制
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.VoiceLib.VoiceControl(System.String,System.String)">
+            <summary>
+            语音控制
+            </summary>
+            <param name="audioData">语音数据</param>
+            <param name="dataType">语音数据类型</param>
+        </member>
+        <member name="T:GWServiceAPI.Net.LibClass.RealTimeLib">
+            <summary>
+            设备数据
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.GWEquipTreeList(System.String)">
+            <summary>
+            获取设备的节点列表
+            </summary>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.GWEquipTreeLists(GWServiceAPI.Net.Models.GWEquipTreeItem[],System.String[])">
+            <summary>
+            获取当前用户的设备信息
+            </summary>
+            <param name="tree">原设备信息列表</param>
+            <param name="equip_no_list">设备号列表</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.GetEquipAllState(System.String)">
+            <summary>
+            获取所有设备的实时状态
+            </summary>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.GetEquipItemState(System.String,System.String)">
+            <summary>
+            获取当前设备的测点状态
+            </summary>
+            <param name="equip_no">设备号</param>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.GetEquipItemYCYXState(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取当前设备，当前测点的状态
+            </summary>
+            <param name="equip_no">设备号</param>
+            <param name="ycyx_no">测点值</param>
+            <param name="type">类型</param>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.ExpressionEval(System.String,System.String)">
+            <summary>
+            执行表达式
+            </summary>
+            <param name="expression">表达式字符串</param>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.SetupsCommand(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            设备控制命令（设置按钮）
+            </summary>
+            <param name="equip_no">设备号</param>
+            <param name="main_instruction">设备属性1</param>
+            <param name="minor_instruction">设备属性2</param>
+            <param name="value">设备值</param>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.SetupsCommand1(System.String,System.String,System.String)">
+            <summary>
+            设备控制命令（设置按钮）
+            </summary>
+            <param name="equip_no">设备号</param>
+            <param name="set_no">设置号</param>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.SetupsCommand2(System.String,System.String,System.String,System.String)">
+            <summary>
+            设备控制命令（设置按钮）
+            </summary>
+            <param name="equip_no">设备号</param>
+            <param name="set_no">设置号</param>
+            <param name="value">设置值</param>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.SetupsCommand3(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            设备控制命令（设置按钮）
+            </summary>
+            <param name="equip_no">设备号</param>
+            <param name="main_instruction">设备属性1</param>
+            <param name="minor_instruction">设备属性2</param>
+            <param name="value">设备值</param>
+            <param name="type">类型</param>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.SetupsCommand4(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            设备控制命令（设置按钮）
+            </summary>
+            <param name="equip_no">设备号</param>
+            <param name="main_instruction">设备属性1</param>
+            <param name="minor_instruction">设备属性2</param>
+            <param name="value">设备值</param>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.GetSystemConfig(System.String,System.String,System.String)">
+            <summary>
+            获取设备配置、模拟量配置、状态量配置和设置配置信息
+            </summary>
+            <param name="table_name">表名</param>
+            <param name="equip_no_list">设备号</param>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.GetSingleConfig(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取模拟量配置、状态量配置和设置配置的单个测点信息
+            </summary>
+            <param name="table_name">表名</param>
+            <param name="equip_no">设备号</param>
+            <param name="ycyxset_no">测点号</param>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.SystemSetupsName(System.String)">
+            <summary>
+            配置表列名信息
+            </summary>
+            <param name="tableName">表名</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.SystemSetupsChange(System.String,System.String,System.String)">
+            <summary>
+            系统配置更改数据
+            </summary>
+            <param name="jsonChange">(设备号,字段名,更改的值)(设备号,测点号,字段名,更改的值)</param>
+            <param name="tableName">表名</param>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.RealTimeLib.GetHistoryYCP(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            ycp历史数据
+            </summary>
+            <param name="beginDT">开始时间</param>
+            <param name="endDT">结束时间</param>
+            <param name="equip_no">设备号</param>
+            <param name="ycpno">测点号</param>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="T:GWServiceAPI.Net.LibClass.PermissionLib">
+            <summary>
+            权限管理
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.PermissionLib.UserItemList(System.String)">
+            <summary>
+            获取当前用户所有权限信息
+            </summary>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.PermissionLib.UserPermission(System.String)">
+            <summary>
+            获取当前用户可查看的设备以及子项
+            </summary>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.PermissionLib.UserControlList(System.String)">
+            <summary>
+            获取当前用户可控制的设备以及子项
+            </summary>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.PermissionLib.UserItemAddinModule(System.String)">
+            <summary>
+            获取当前用户的系统功能权限
+            </summary>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.PermissionLib.UserItemBrowsePages(System.String)">
+            <summary>
+            获取当前用户的页面功能权限
+            </summary>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.PermissionLib.GetAddinModule(System.String)">
+            <summary>
+            获取系统功能组态页
+            </summary>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.PermissionLib.GetEquipPages(System.String)">
+            <summary>
+            获取设备功能组态页
+            </summary>
+            <param name="auth">认证信息</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.PermissionLib.AddWebRole(System.String,System.String)">
+            <summary>
+            添加Web页面访问权限
+            </summary>
+            <param name="update">需要添加访问权限页面的数据</param>
+            <param name="name">表名</param>
+            <returns></returns>
+        </member>
+        <member name="T:GWServiceAPI.Net.LibClass.EventLib">
+            <summary>
+            报警事件
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.EventLib.GetAlarmConfig">
+            <summary>
+            获取事件的报警配置
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.EventLib.GetRealTimeEvent(System.String,System.String)">
+            <summary>
+            获取当前系统报警的实时事件
+            </summary>
+            <param name="event_Level_list">报警分类，多个值请用逗号隔开</param>
+            <param name="auth">认证参数</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.EventLib.GetRealTimeEventCount(System.String,System.String)">
+            <summary>
+            获取当前实时报警事件的总数
+            </summary>
+            <param name="event_Level_list">报警分类，多个分类请用';'符号隔开，多个值请用逗号隔开</param>
+            <param name="auth">认证参数</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.EventLib.EventConfirm(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            请确定接口
+            </summary>
+            <param name="procMsg">处理意见</param>
+            <param name="isMsg">是否发送短信</param>
+            <param name="telStr">发送人的电话</param>
+            <param name="procName">事件名</param>
+            <param name="procTime">事件时间</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.EventLib.EventQueryHistory(System.String,System.String,System.String,System.String)">
+            <summary>
+            查询设备事件、设置事件、系统事件的历史数据
+            </summary>
+            <param name="tableName">表名</param>
+            <param name="times">时间，起始时间,结束时间;(当只有一个时间的时候，为起始时间)</param>
+            <param name="equip_no_list">设备号，多个数据时请用“,”号隔开</param>
+            <param name="auth">认证参数</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.RunProxy(System.String,System.String,System.String)">
+            <summary>
+            连接AlarmCenter服务
+            </summary>
+            <param name="ip">服务IP</param>
+            <param name="Name">用户名</param>
+            <param name="pwd">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.XmlSerializer``1(``0)">
+             <summary>
+            序列化
+             </summary>
+             <typeparam name="T"></typeparam>
+             <param name="serialObject"></param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.DeserializeObject``1(System.String)">
+             <summary>
+            反序列化
+             </summary>
+             <typeparam name="T"></typeparam>
+             <param name="xml"></param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.String2Json(System.String)">
+            <summary>
+            过滤特殊字符
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.StringFormat(System.String,System.Type)">
+            <summary>
+            格式化字符型、日期型、布尔型
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.getHostIp">
+            <summary>
+            获取本机ip地址
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.getHostIp(System.Int32)">
+            <summary>
+            获取本机ip地址
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.ConditionEquipNo(System.String)">
+            <summary>
+            多个设备号的条件
+            </summary>
+            <param name="equip_no_list">设备号</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.MD5Encrypt(System.String)">
+            <summary>
+            加密MD5
+            </summary>
+            <param name="JMString">需加密的字符</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.MD5Decrypt(System.String)">
+            <summary>
+            解密MD5
+            </summary>
+            <param name="JMString">需解密的字符</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.SQLEquipConnect(System.String,System.String)">
+            <summary>
+            多个设备SQL条件语句连接
+            </summary>
+            <param name="equip_no_list">设备号</param>
+            <param name="table_name">表名</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.SQLTimeConnect(System.String)">
+            <summary>
+            多个时间SQL条件语句连接
+            </summary>
+            <param name="times">原time格式</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.AlarmDispose(System.String,System.String)">
+            <summary>
+            处理表字段
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.GZip_Decompress(System.Byte[])">
+            <summary>
+            解压缩字节数组
+            </summary>
+            <param name="inputBytes"></param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.GetRole(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.Int32},System.String[],System.String)">
+            <summary>
+            权限判断
+            </summary>
+            <param name="s1">类型1</param>
+            <param name="s2">类型2</param>
+            <param name="guid_lists">唯一标识</param>
+            <param name="returnType">返回类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.ExecuteCMD(System.String)">
+            <summary>
+            执行cmd命令
+            </summary>
+            <param name="cmd"></param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.ErrorLog(System.String,System.String)">
+            <summary>
+            错误日志
+            </summary>
+            <param name="error">错误信息</param>
+            <param name="path">输出到目录</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.GetDLLMethod(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            加载DLL方法
+            </summary>
+            <param name="path">路径</param>
+            <param name="className">类名</param>
+            <param name="methodName">方法名</param>
+            <param name="newExample">是否需要实例化</param>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.GetDLLVersion(System.String)">
+            <summary>
+            获取DLL版本
+            </summary>
+            <param name="fromPath">路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.DelRepeatData(System.String[])">
+            <summary>  
+            移除数组中重复数据  
+            </summary>  
+            <param name="array">需要除重的数组</param>  
+            <returns>不重复数组</returns>  
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.EquipList(System.String)">
+            <summary>
+            所有设备列表
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:GWServiceAPI.Net.LibClass.Methods.EquipListSp(System.String)" -->
+        <member name="M:GWServiceAPI.Net.LibClass.Methods.EquipListUser(System.String,System.String)">
+            <summary>
+            判断设备号是否有查看权限
+            </summary>
+            <param name="userPerList">当前用户可查看的设备列表</param>
+            <param name="equip_list">需要查看的设备列表</param>
+        </member>
+        <member name="T:GWServiceAPI.Net.LibClass.UserRole">
+            <summary>
+            是否有权限
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ServerLib.UserKeyDecrypt(System.String,System.String)">
+            <summary>
+            解析Appkey
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ServerLib.VerifyService(System.String,System.String)">
+            <summary>
+            验证Appkey
+            </summary>
+            <param name="appkey"></param>
+            <param name="infokey"></param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ServerLib.ConnectService(System.String)">
+            <summary>
+            连接服务器
+            </summary>
+            <param name="user_name">用户名</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ServerLib.LoginService(System.String,System.String)">
+            <summary>
+            登录服务
+            </summary>
+            <param name="userName">用户名</param>
+            <param name="userPwd">密码</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ServerLib.GetDataTableSQL(System.String)">
+            <summary>
+            查询SQL命令
+            </summary>
+            <param name="sql">sql语句</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ServerLib.ExecuteSQL(System.String)">
+            <summary>
+            执行SQL命令
+            </summary>
+            <param name="sql">sql语句</param>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ServerLib.ProgramVersion">
+            <summary>
+            获取AlarmCenterAPI程序版本
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ServerLib.GetAuthName">
+            <summary>
+            获取软件授权名称
+            </summary>
+        </member>
+        <member name="M:GWServiceAPI.Net.LibClass.ServerLib.VersionAutoUpdate(System.String)">
+            <summary>
+            自动适配AlarmCenter版本
+            </summary>
+            <param name="fromPath">AlarmCenter bin目录，若为空则自动寻找</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

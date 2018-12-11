@@ -1,0 +1,302 @@
+<div class="navbar">
+	<div class="navbar-inner notHomeBar">
+		<div class="left">
+			<a href="#" class="link back icon-only">
+				<i class="iconfont icon-xiangzuo"></i>返回
+			</a>
+		</div>
+		<div class="center">
+			会议申请
+		</div>
+		<div class="right">
+			
+		</div>
+		
+	</div>
+</div>
+<div class="pages ">
+	<div class="page with-subnavbar navbar-through" data-page="createMetting" id="createMetting">
+		<div class="page-content" >
+			<input type="hidden"  id="url" value="" />
+			
+			<input type="hidden"  id="meetType" value="0" />
+			<input type="hidden" id="joinPerson" value=""/>
+			<input type="hidden" id="server" value=""/>
+			<input type="hidden" id="isLeader" value="0"/>
+			<input type="hidden" id="notify" value=""/>
+			
+			<div class="roomPicker">
+				
+				<div class="roomCon">
+					<p>会议类型选择</p>
+					<div class="list-block room">
+					  <ul>
+					  	<li onclick="chooseKind(this,0,'培训')"> 
+					  		<label class="label-radio item-content"> 
+					  			<input type="radio" name="my-radio" value="0" checked="checked">  
+					  				<div class="item-media"> 
+					  					<i class="icon icon-form-radio"></i> 
+					  				</div> 
+					  				<div class="item-inner"> 
+					  					<div class="item-title">培训</div>
+					  				</div> 
+					  		</label>  
+					  	</li>
+					  	<li onclick="chooseKind(this,1,'一级')"> 
+					  		<label class="label-radio item-content"> 
+					  			<input type="radio" name="my-radio" value="1">  
+					  				<div class="item-media"> 
+					  					<i class="icon icon-form-radio"></i> 
+					  				</div> 
+					  				<div class="item-inner"> 
+					  					<div class="item-title">一级</div>
+					  				</div> 
+					  		</label>  
+					  	</li>
+					  	<li onclick="chooseKind(this,2,'二级')"> 
+					  		<label class="label-radio item-content"> 
+					  			<input type="radio" name="my-radio" value="2">  
+					  				<div class="item-media"> 
+					  					<i class="icon icon-form-radio"></i> 
+					  				</div> 
+					  				<div class="item-inner"> 
+					  					<div class="item-title">二级</div>
+					  				</div> 
+					  		</label>  
+					  	</li>
+				    	<li onclick="chooseKind(this,3,'其他')"> 
+					  		<label class="label-radio item-content"> 
+					  			<input type="radio" name="my-radio" value="3">  
+					  				<div class="item-media"> 
+					  					<i class="icon icon-form-radio"></i> 
+					  				</div> 
+					  				<div class="item-inner"> 
+					  					<div class="item-title">其他</div>
+					  				</div> 
+					  		</label>  
+					  	</li>
+					  </ul>
+					</div>    
+					<div class="btn">
+						<button class="button button-big button-fill" onclick="closeRoom()">确定</button>
+					</div>
+				</div>
+			</div>
+			
+			<div class="memChoose">
+				<div class="memCon">
+					<p>人员选择</p>
+					<div class="row">
+						<div class="col-30 department">
+							<ul>
+								
+							</ul>
+						</div>
+						<div class="col-70 memList">
+							<div class="list-block">
+							  <ul>
+							   
+							  </ul>
+							</div>        
+						</div>
+					</div>
+					<div class="btn">
+						<button class="button button-big button-fill" onclick="closeMem()">确定</button>
+					</div>
+				</div>
+			</div>
+			<div class="meettngSer">
+				<div class="memCon">
+					<p>会议服务</p>
+					<div class="row">
+						<div class="col-100 department">
+							<ul class="list-block">
+								
+								
+							</ul>
+						</div>
+						
+					</div>
+					<div class="btn">
+						<button class="button button-big button-fill" onclick="closeServe()">确定</button>
+					</div>
+				</div>
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					召集部门:
+				</div>
+				<div class="col-70 ">
+					<input type="text" readonly="readonly" id="creaDepart" />
+				</div>
+				
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					开始时间:
+				</div>
+				<div class="col-60" >
+					<input type="text" readonly="readonly" id="timePicker" class="timePicker" placeholder="点击进行时间选择"/>
+				</div>
+				<div class="col-10" ><!--id="getStartTimer"-->
+					<i  class="iconfont icon-rili"></i>
+				</div>
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					结束时间:
+				</div>
+				<div class="col-60">
+					<input type="text" readonly="readonly" id="timePicker2" class="timePicker" placeholder="点击进行时间选择"/>
+				</div>
+				<div class="col-10" ><!--id="getEndTimer" -->
+					<i class="iconfont icon-rili"></i>
+				</div>
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					会议主题:
+				</div>
+				<div class="col-70" >
+					<input type="text " id="meetTopic"/>
+				</div>
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					会议类型:
+				</div>
+				<div class="col-70" onclick="showKind()">
+					<input type="text " class="meetType" readonly="readonly" value="培训"/>
+				</div>
+				
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					会议内容:
+				</div>
+				<div class="col-70" >
+					<input type="text " id="meetCon"  value=""/>
+				</div>
+				
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					参会人员:
+				</div>
+				<div class="col-70" onclick="joinMember()">
+					
+					<input type="text" readonly="readonly" id="others" value=" " />
+					
+				</div>
+				
+			</div>
+			
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					联系人:
+				</div>
+				<div class="col-70">
+					<input type="text" id="contact" value=" " />
+				</div>
+				
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					联系手机号:
+				</div>
+				<div class="col-70">
+					<input type="text" id="contactPhone" value=" "/>
+				</div>
+				
+			</div>
+			<div class="inpWrap row no-gutter" onclick="meetSer()">
+				<div class="col-30 txt">
+					会议服务:
+				</div>
+				<div class="col-70">
+					<input type="text" readonly="readonly" id="meetServe" value=" "/>
+				</div>
+				
+			</div>
+			<div class="useFor">
+				<p>
+					是否领导参加:
+				</p>
+				<div class="row">
+					<div class="col-33">
+						<label class="label-checkbox item-content" onclick="showMark(this,1)">
+						        <input type="checkbox" name="my-checkbox" value="1">
+						        <div class="item-media" style="display: inline-block;">
+						          <i class="icon icon-form-checkbox"></i>
+						        </div>
+						        <div class="item-inner" style="display: inline-block;">
+						          <div class="item-title">是</div>
+						        </div>
+						</label>
+					</div>
+					<div class="col-33">
+						<label class="label-checkbox item-content" onclick="showMark(this,0)">
+						        <input type="checkbox" name="my-checkbox" checked="checked" value="0">
+						        <div class="item-media" style="display: inline-block;">
+						          <i class="icon icon-form-checkbox"></i>
+						        </div>
+						        <div class="item-inner" style="display: inline-block;">
+						          <div class="item-title">否</div>
+						        </div>
+						</label>
+					</div>
+					<div class="col-33">
+						<!--备注<input type="text" />-->
+					</div>
+				</div>
+			</div>
+			
+			<div class="leaderMark inpWrap row no-gutter ">
+				<div class="col-30 txt">
+					备注:
+				</div>
+				<div class="col-70">
+					<input type="text" id="leadMark" value=" "/>
+				</div>
+				
+			</div>
+			
+			<div class="useFor">
+				<p>会议通知</p>
+				<div class="row ">
+					<div class="col-33">
+						<label class="label-checkbox item-content" onclick="chooseNotice(this,'0')">
+					        <input type="checkbox" name="my-checkbox" value="0">
+					        <div class="item-media" style="display: inline-block;">
+					          <i class="icon icon-form-checkbox"></i>
+					        </div>
+					        <div class="item-inner" style="display: inline-block;">
+					          <div class="item-title">短信通知</div>
+					        </div>
+					     </label>
+					</div>
+					<div class="col-33">
+						<label class="label-checkbox item-content" onclick="chooseNotice(this,'1')">
+					        <input type="checkbox" name="my-checkbox" value="1">
+					        <div class="item-media" style="display: inline-block;">
+					          <i class="icon icon-form-checkbox"></i>
+					        </div>
+					        <div class="item-inner" style="display: inline-block;">
+					          <div class="item-title">邮件通知</div>
+					        </div>
+					     </label>
+					</div>
+					<div class="col-33">
+						
+					</div>
+					
+				</div>
+			</div>
+			<div class="upBtn button button-big button-fill" onclick="upThisMeeting(this)">
+				提交
+			</div>
+			
+		</div>
+		
+	</div>
+</div>

@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html class="with-statusbar-overlay">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--<meta name="viewport" content="width=device-width, viewport-fit=cover">-->
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+    <title>上海银行-首页</title>
+    
+    <link rel="icon" href="/Image/bank/logo.png" type="image/x-icon">
+    <!--框架样式-->
+    <link rel="stylesheet" href="/Scripts/plug/1.5.0/framework7.ios.min.css">
+    <link rel="stylesheet" href="/Scripts/plug/1.5.0/framework7.ios.colors.min.css">
+    <!--图标字体样式-->
+    <link rel="stylesheet" type="text/css" href="/fonts/iconfont.css" />
+    <!--声波动画-->
+    <link rel="stylesheet" type="text/css" href="/Styles/Plugin/waveAnimation.css" />
+    <!--本页样式-->
+    <link rel="stylesheet" href="/Styles/Mobile/home.css">
+    <link rel="stylesheet" href="/fonts/bank/iconfont.css" />
+    <!-- <link rel="stylesheet" href="/Styles/Plugin/swiper-4.3.3.min.css"/> -->
+</head>
+<body >
+	<!--style="padding-top: 20px ;background:  #258de5;box-sizing: border-box;"-->
+    <!-- 状态栏覆盖为全屏模式 -->
+    <div class="statusbar-overlay" style=""></div>
+    <!-- 面板覆盖-->
+    <div class="panel-overlay"></div>
+    <!-- 左侧边栏-->
+    <div class="panel panel-left  panel-cover leftPanel close-panel">
+        <div class="list-block list-page">
+        	<div class="impWrap">
+        		<div class="imgC">
+        			<i class="iconfont icon-ren"></i>
+        		</div>
+        		<p class="name">王小二</p>
+        	</div>
+        	<div class="row listItem no-gutter" onclick="myJavaFun.RichScan();">
+        		<div class="col-30">
+        			<i class="iconfont icon-saomiaoerweima"></i>
+        		</div>
+        		<div class="col-70">
+        			扫一扫
+        		</div>
+        	</div>
+        	<!-- <div class="row listItem no-gutter" onclick="loadHtmls('Voice.html')">
+        		<div class="col-30">
+        			<i class="iconfont icon-yuyin"></i>
+        		</div>
+        		<div class="col-70">
+        			语音系统
+        		</div>
+        	</div> -->
+        	<div class="row listItem no-gutter" onclick="loadHtmls('myPermision.html')">
+        		<div class="col-30">
+        			<i class="iconfont icon-ICON"></i>
+        		</div>
+        		<div class="col-70">
+        			我的权限
+        		</div>
+        	</div>
+        	<!-- <div id="proPer" class="row listItem no-gutter" style="display: none;"  onclick="loadHtmls('sp')">
+        		<div class="col-30">
+        			<i class="iconfont icon-shenpi"></i>
+        		</div>
+        		<div class="col-70">
+        			权限审批
+        		</div>
+        	</div> -->
+        	<!-- <div class="row listItem no-gutter" onclick="onAbout()">
+        		<div class="col-30">
+        			<i class="iconfont icon-guanyu"></i>
+        		</div>
+        		<div class="col-70">
+        			关于
+        		</div>
+        	</div> -->
+        	<div class="row listItem no-gutter" onclick="onAppCacheClear()">
+        		<div class="col-30">
+        			<i class="iconfont icon-huancun"></i>
+        		</div>
+        		<div class="col-70">
+        			清空缓存
+        		</div>
+        	</div>
+        	<div class="row listItem no-gutter" onclick="onUserLogout()">
+        		<div class="col-30">
+        			<i class="iconfont icon-logout"></i>
+        		</div>
+        		<div class="col-70">
+        			注销
+        		</div>
+        	</div>
+        	
+        </div>
+    </div>
+    
+    <!-- 视图 -->
+  	<!--<input type="text" name="" id="" value="" />
+  	<input type="text" name="" id="" value="" />-->
+    <div class="views ">
+    	
+        <div class="view view-main">
+            <!-- 顶部导航条-->
+            <div class="navbar navbar-hidden" style="z-index: 99;">
+                <!--<div class="navbar-inner" >
+                    <div class="left"></div>
+                    <div class="center "></div>
+                    <div class="right">
+                        <a href="#" class="link icon-only open-panel"><i class="iconfont icon-caidan"></i></a>
+                    </div>
+                </div>-->
+            </div>
+            <!-- 子界面-->
+            <div class="pages  navbar-throug">
+            	
+                <div data-page="home" class="page with-subnavbar no-navbar" id="home" >
+                	<a href="#" class="link icon-only open-panel" style="position: absolute;right: 15px;top: 5px;z-index: 999;">
+	                   	<i class="iconfont icon-caidan" style="color: #fff;font-size: 1.8rem;"></i>
+	                </a>
+                   <div class="page-content" style="background: #f7fafb;">
+                   	 
+                   	<!--<input type="" name="err" id="err" value="" />-->
+                   		<div class="infor">
+                   			<div class="avator">
+                   				<i class="iconfont icon-ren"></i>
+                   				<img src=""/>
+                   			</div>
+                   			<p class="name">王小二</p>
+                   			<p class="part">
+                   				部门:<span>保安部</span>
+                   			</p>
+                   			<!--<p class="money">
+                   				余额:<span>1200.12</span>元
+                   			</p>-->
+                   		</div>
+                   		<div class="prog">
+                   			<div class="itemLine admin">
+                   				
+                   			</div>
+                   		</div>
+                   		
+                   	</div>
+                   
+                </div>
+               
+            </div>
+            
+            <!-- 底部工具栏-->
+           
+        </div>
+        
+    </div>
+    <div class="picker-modal picker-startTime">
+    	<div class="toolbar">
+	      <div class="toolbar-inner">
+	        <div class="left"></div>
+	        <div class="right"><a href="#" class="close-picker">确定</a></div>
+	      </div>
+	    </div>
+	    <div class="picker-modal-inner" id="beiginTime">
+	      
+	    </div>
+    </div>
+    <div class="picker-modal picker-endTime">
+    	<div class="toolbar">
+	      <div class="toolbar-inner">
+	        <div class="left"></div>
+	        
+	        <div class="right"><a href="#" class="close-picker">确定</a></div>
+	      </div>
+	    </div>
+	    <div class="picker-modal-inner" id="endTime">
+	      
+	    </div>
+    </div>
+   
+    <div class="popup popup-meet">
+    	<div class="row popHeader">
+    		<div class="col-20 left"></div>
+    		<div class="col-60 center">会议签到</div>
+    		<div class="col-20 right close-popup">
+    			关闭
+    		</div>
+    	</div>
+	    <div class="content-block">
+	      	<div class="iWrap">
+	      		<i class="iconfont icon-chenggong-"></i>
+	      		<p>签到成功</p>
+	      		<p class="name">签到人: <span></span></p>
+	      		<p class="time">签到时间: <span>2018-08-15 12:00</span></p>
+	      	</div>
+	      	
+	    </div>
+	</div>
+	<div class="popup popup-visitor">
+		<div class="row popHeader">
+    		<div class="col-20 left"></div>
+    		<div class="col-60 center">访客信息</div>
+    		<div class="col-20 right close-popup">
+    			关闭
+    		</div>
+    	</div>
+	    <div class="content-block">
+	    	<div class="iWrap">
+	    		<i class="iconfont icon-chenggong-"></i>
+	    	</div>
+	    	
+	    	<p>扫描成功</p>
+	      	<div class="row lineTxt">
+	      		<div class="col-40">来访姓名:</div>
+	      		<div class="col-60 name"></div>
+	      	</div>
+	      	<div class="row lineTxt">
+	      		<div class="col-40">预约时间:</div>
+	      		<div class="col-60 time"></div>
+	      	</div>
+	      	<div class="row lineTxt">
+	      		<div class="col-40">来访人电话:</div>
+	      		<div class="col-60 tel"></div>
+	      	</div>
+	      	<div class="row lineTxt">
+	      		<div class="col-40">来访人证件号:</div>
+	      		<div class="col-60 cardId"></div>
+	      	</div>
+	      	<div class="row lineTxt">
+	      		<div class="col-40">来访是由:</div>
+	      		<div class="col-60 reason"></div>
+	      	</div>
+	      	<div class="row lineTxt">
+	      		<div class="col-40">随访人数:</div>
+	      		<div class="col-60 num"></div>
+	      	</div>
+	      	<div class="row lineTxt">
+	      		<div class="col-40">被访人姓名:</div>
+	      		<div class="col-60 namer"></div>
+	      	</div>
+	      	<div class="row lineTxt">
+	      		<div class="col-40">被访人部门:</div>
+	      		<div class="col-60 depart"></div>
+	      	</div>
+	      	<div class="row lineTxt">
+	      		<div class="col-40">被访人手机:</div>
+	      		<div class="col-60 memTel"></div>
+	      	</div>
+	      	<div class="row lineTxt">
+	      		<div class="col-40">被访人工号:</div>
+	      		<div class="col-60 workNum"></div>
+	      	</div>
+	    </div>
+	</div>
+    <!-- 框架js-->
+    <script src="/Scripts/plug/jquery-1.10.1.min.js"></script>
+    <script src="/Scripts/plug/jq.ajax.min.js"></script>
+    <!--<script src="/Scripts/plug/json2.js"></script>-->
+    <!--<script src="/Scripts/plug/highcharts.js"></script>-->
+    <!--<script src="/Scripts/plug/echarts-all-3.js"></script>-->
+    <!--<script src="/Scripts/plug/china.js"></script>-->
+    <script type="text/javascript" src="/Scripts/plug/1.5.0/framework7.js"></script>
+    <!--<script type="text/javascript" src="/Scripts/plug/html2canvas.min.js"></script>-->
+    <!-- 首页js-->
+    <script type="text/javascript" src="/Scripts/mobile/home.js"></script>
+    <script type="text/javascript" src="/Scripts/mobile/public.js"></script>
+    <script type="text/javascript" src="/Scripts/mobile/datePicker.js"></script>
+    <!-- 移动端入口js-->
+    <script type="text/javascript" src="/Scripts/mobile/mobileAll.js"></script>
+    <!-- 插件-->
+    <!--<script type="text/javascript" src="/Scripts/mobile/plugin/appPopup.js"></script>-->
+    <!-- 二维扫描结果 -->
+    <!--<script type="text/javascript" src="/Scripts/mobile/RichScanCallback.js"></script>-->
+	<!--<script type="text/javascript" src="/Scripts/mobile/plugin/html5media.min.js"></script>-->
+	<script type="text/javascript" src="/Scripts/mobile/IntePage.js"></script> 
+	<!-- <script type="text/javascript" src="/Scripts/plug/swiper-4.3.3.min.js"></script> -->
+	<!--<script type="text/javascript" src="/Scripts/plug/schedule.js"></script>-->
+	
+</body>
+</html>

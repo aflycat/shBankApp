@@ -1,0 +1,145 @@
+<div class="navbar">
+	<div class="navbar-inner notHomeBar">
+		<div class="left">
+			<a href="#" class="link back icon-only">
+				<i class="iconfont icon-xiangzuo"></i>返回
+			</a>
+		</div>
+		<div class="center">
+			预约
+		</div>
+		<div class="right">
+			
+		</div>
+		
+	</div>
+</div>
+<div class="pages">
+	<div class="page with-subnavbar navbar-through" data-page="visitorSys" id="visitorSys">
+		<div class="page-content">
+			
+			<div class="memChoose">
+				<div class="memCon">
+					<p>人员选择</p>
+					<div class="row">
+						<div class="col-30 department">
+							<ul>
+								<!--<li class="cli" onclick="getMember(this)">财务部</li>-->
+							</ul>
+						</div>
+						<div class="col-70 memList">
+							<div class="list-block">
+							  <ul>
+							   
+							  </ul>
+							</div>        
+						</div>
+					</div>
+					<div class="btn">
+						<button class="button button-big button-fill" onclick="closeMem()">确定</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="inpWrap row no-gutter" ><!---->
+				<div class="col-30 txt">
+					预约时间:
+				</div>
+				<div class="col-60" >
+					<input type="text"  readonly="readonly" id="timePicker" placeholder="点击进行时间选择"/>
+				</div>
+				<div class="col-10" id="getStartTimer">
+					<i class="iconfont icon-rili"></i>
+				</div>
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					来访人姓名:
+				</div>
+				<div class="col-70">
+					<input type="text" id="viName"/>
+				</div>
+				
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					来访人证件:
+				</div>
+				<div class="col-70">
+					<input type="text" id="cardId"/>
+				</div>
+			</div>
+			
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					来访是由:
+				</div>
+				<div class="col-70">
+					<input type="text" id="reason"/>
+				</div>
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					来访人电话:
+				</div>
+				<div class="col-70">
+					<input type="text" id="viTel"/>
+				</div>
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					随行人数:
+				</div>
+				<div class="col-70">
+					<input type="text" id="followNum"/>
+				</div>
+			</div>
+			<div class="inpWrap row no-gutter" onclick="showMem()">
+				<div class="col-30 txt">
+					被访人:
+				</div>
+				<div class="col-70">
+					<input type="text" id="name" readonly="readonly" nameId=""/>
+				</div>
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					被访人电话:
+				</div>
+				<div class="col-70">
+					<input type="text" id="tel"  readonly="readonly"/>
+				</div>
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					被访人部门:
+				</div>
+				<div class="col-70">
+					<input type="text" id="part" readonly="readonly"/>
+				</div>
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					被访人工号:
+				</div>
+				<div class="col-70">
+					<input type="text" id="carNum"  readonly="readonly"/>
+				</div>
+			</div>
+			<div class="inpWrap row no-gutter">
+				<div class="col-30 txt">
+					被访人楼层:
+				</div>
+				<div class="col-70">
+					<input type="text" id="floor" />
+				</div>
+			</div>
+			
+			<div class="button button-fill button-big upBtn" onclick="upVisitor()">提交</div>
+			
+			
+		</div>
+		
+					
+	</div>
+</div>

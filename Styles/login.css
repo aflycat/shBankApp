@@ -1,0 +1,56 @@
+/******登录界面样式******/
+/*--------公共样式--------*/
+.clear{clear:both;}
+/*--------全文档--------*/
+* {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;margin: 0;padding: 0;}
+
+html,body {background-repeat:no-repeat;background-position:center top;background-attachment:fixed;background-size: cover;font-family:"Microsoft YaHei";font-size:13px;width: 100%;height: 100%;}
+a,button,i,span,textarea,input{outline:0;}
+a,button,i,span,textarea,input:focus{outline:0;}
+input[disabled],textarea[disabled],button[disabled]{opacity: .65;cursor:not-allowed;pointer-events:none; -webkit-appearance: none;}
+#wrap{width: 100%;height: 100%;overflow: hidden;background: #fff;}
+.image{width: 80%;height: auto;margin: 0 auto;margin-top: 5vh;}
+.image img{width: 100%;height: auto;}
+.inputWrap{width: 80%;margin: 0 auto;margin-bottom: 30px;border-bottom: 1px solid  #eee;overflow: hidden;position: relative;}
+.inputWrap .notic{line-height: 40px;color: #798084;float: left;width: 35%;}
+.inputWrap .notic i{font-size: 2rem;display: inline-block;}
+.inputWrap .notic p{display: inline-block;height: 40px;line-height: 40px;font-size: 16px;}
+.inputWrap .inputItem{float: left;width: 65%;}
+.inputWrap	.closeWrap{
+	position: absolute;
+	right: 0px;
+	top: 17px;
+	background: #fff;
+	z-index: 88;
+}
+.inputWrap	.closeWrap i{font-size: 1.2rem;}
+.inputWrap input{width: 100%;height: 50px;border: none 0;font-size: 16px;}
+.remeberPass{width: 80%;height: 40px;margin: 0 auto;color:#798084 ;}
+.remeberPass .check{float: right;font-size: 16px;}
+.remeberPass .check i{font-size: 1.4rem;margin-right: 10px;position: relative;top: 2px;}
+.remeberPass .check input{opacity: 0;visibility: hidden;}
+.remeber{color:#228be5 ;}
+.loginNot{display: none;}
+.btn{
+	width: 80%;
+	/*padding: 14px 0;*/
+	text-align: center;
+	color: #fff;
+	background: #228be5;
+	margin: 0 auto;
+	font-size: 16px;
+	letter-spacing: 5px;
+	margin-top: 5vh;
+	height: 50px;
+	display: flex;
+	/*align-content: center;*/
+	justify-content: center;
+	align-items: center;
+	line-height: 50px;
+	}
+.btn img{
+	height: 40px;
+	width:40px;
+	display: none;
+}
+.loginNot{text-align:center;padding: 14px 0;color:#0075d9 ;}

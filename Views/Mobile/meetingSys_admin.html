@@ -1,0 +1,238 @@
+<div class="navbar">
+	<div class="navbar-inner notHomeBar">
+		<div class="left">
+			<a href="#" class="link back icon-only">
+				<i class="iconfont icon-xiangzuo"></i>返回
+			</a>
+		</div>
+		<div class="center">
+			会议系统
+		</div>
+		<div class="right">
+			<a href="createMetting.html" class="link  icon-only" >
+				<i class="iconfont icon-shenqing"></i>
+			</a>
+		</div>
+		
+	</div>
+</div>
+
+<div class="pages">
+	
+	<div class="page  with-subnavbar navbar-through" data-page="meetingSys_admin" id="meetingSys_admin">
+		<div class="page-content" style="overflow:hidden ;">
+			
+			
+			<div class="lookMore">
+				<div class="conWrap">
+					<div class="dateWrap">
+							<div class="top">
+								<div class="day">
+									6日
+								</div>
+								<div class="iWrap">
+									<i class="iconfont icon-rili"></i>
+								</div>
+							</div>
+							<div class="week">星期二</div>
+					</div>
+					<div class="inforWrap">
+						
+					</div>
+					<div class="btnWrap">
+						
+					</div>
+				</div>
+			</div>
+			<div class="roomPicker">
+				
+				<div class="roomCon">
+					<p>会议室选择</p>
+					<div class="list-block room">
+					  <ul>
+					    	
+					  </ul>
+					</div>    
+					<div class="btn">
+						<button class="button button-big button-fill" onclick="closeRoom()">确定</button>
+					</div>
+				</div>
+			</div>
+			<div class="meetingApraise">
+				
+				<div class="roomCon">
+					<p class="roomTit">会议评价</p>
+					<div class="list-block room">
+					  <ul>
+				    	
+				    	
+					  </ul>
+					</div>    
+					
+				</div>
+			</div>
+			<div class="content-block barDownCh">
+				<div class="buttons-row">
+		            <a href="#plan" class="button  tab-link active">
+		            	 <span>会议安排</span>
+		            </a>
+		            
+		            <a href="#result" class="button  tab-link" onclick="get_all_mee()">
+		            	<span>会议审批</span>
+		            	
+		            </a>
+		        </div>
+			</div>
+			<!--<div class="row pastMeet">
+				<div class="col-60">尚有未结束的往期会议</div>
+				<div class="col-20">查看</div>
+				<div class="col-20">关闭</div>
+				
+			</div>-->
+			
+			<div class="tabs">
+				
+				<div id="result" class="tab pull-to-refresh-content"  data-ptr-distance="55">
+					<input type="hidden"  id="meetId"/>
+					<input type="hidden"  id="roomId"/>
+					<input type="hidden" id="resultAgree" value="1"/>
+					<div class="pull-to-refresh-layer">
+					      <div class="preloader"></div>
+					      <div class="pull-to-refresh-arrow"></div>
+					</div>
+					<div class="row no-gutter tit">
+						<div class="col-25">
+							会议时间
+						</div>
+						<div class="col-20">
+							会议主题
+						</div>
+						<div class="col-15">
+							申请人
+						</div>
+						<div class="col-20">
+							会议室
+						</div>
+						<div class="col-20">
+							审核结果
+						</div>
+					</div>
+					<div class="con "  >
+						
+					</div>
+					
+				</div>
+				<div id="plan" class="tab active pull-to-refresh-content" data-ptr-distance="55">
+					<div class="pull-to-refresh-layer">
+					      <div class="preloader"></div>
+					      <div class="pull-to-refresh-arrow"></div>
+					</div>
+					
+					<div class="listItem">
+						<div class="meet" id="0">
+							<p class="date"></p>
+							<div class="row no-gutter meettit">
+								<div class="col-20 ">开始时间</div>
+								<div class="col-20">结束时间</div>
+								<div class="col-20">会议主题</div>
+								<div class="col-20">会议室</div>
+								<div class="col-20">会议状态</div>
+							</div>
+							<div class="meetList con">
+								
+								
+							</div>
+						</div>
+						<div class="meet" id="1">
+							<p class="date"></p>
+							<div class="row no-gutter meettit">
+								<div class="col-20 ">开始时间</div>
+								<div class="col-20">结束时间</div>
+								<div class="col-20">会议主题</div>
+								<div class="col-20">会议室</div>
+								<div class="col-20">会议状态</div>
+							</div>
+							<div class="meetList con">
+								
+								
+							</div>
+						</div>
+						<div class="meet" id="2">
+							<p class="date"></p>
+							<div class="row no-gutter meettit">
+								<div class="col-20 ">开始时间</div>
+								<div class="col-20">结束时间</div>
+								<div class="col-20">会议主题</div>
+								<div class="col-20">会议室</div>
+								<div class="col-20">会议状态</div>
+							</div>
+							<div class="meetList con">
+								
+								
+							</div>
+						</div>
+						<div class="meet" id="3">
+							<p class="date"></p>
+							<div class="row no-gutter meettit">
+								<div class="col-20 ">开始时间</div>
+								<div class="col-20">结束时间</div>
+								<div class="col-20">会议主题</div>
+								<div class="col-20">会议室</div>
+								<div class="col-20">会议状态</div>
+							</div>
+							<div class="meetList con">
+								
+								
+							</div>
+						</div>
+						<div class="meet" id="4">
+							<p class="date"></p>
+							<div class="row no-gutter meettit">
+								<div class="col-20 ">开始时间</div>
+								<div class="col-20">结束时间</div>
+								<div class="col-20">会议主题</div>
+								<div class="col-20">会议室</div>
+								<div class="col-20">会议状态</div>
+							</div>
+							<div class="meetList con">
+								
+								
+							</div>
+						</div>
+						<div class="meet" id="5">
+							<p class="date"></p>
+							<div class="row no-gutter meettit">
+								<div class="col-20 ">开始时间</div>
+								<div class="col-20">结束时间</div>
+								<div class="col-20">会议主题</div>
+								<div class="col-20">会议室</div>
+								<div class="col-20">会议状态</div>
+							</div>
+							<div class="meetList con">
+								
+								
+							</div>
+						</div>
+						<div class="meet" id="6">
+							<p class="date"></p>
+							<div class="row no-gutter meettit">
+								<div class="col-20 ">开始时间</div>
+								<div class="col-20">结束时间</div>
+								<div class="col-20">会议主题</div>
+								<div class="col-20">会议室</div>
+								<div class="col-20">会议状态</div>
+							</div>
+							<div class="meetList con">
+								
+								
+							</div>
+						</div>
+					</div>
+					
+					
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

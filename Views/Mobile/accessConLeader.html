@@ -1,0 +1,122 @@
+<div class="navbar">
+	<div class="navbar-inner notHomeBar">
+		<div class="left">
+			<a href="#" class="link back icon-only">
+				<i class="iconfont icon-xiangzuo"></i>返回
+			</a>
+		</div>
+		<div class="center">
+			门禁系统
+		</div>
+		<div class="right">
+			
+		</div>
+	</div>
+</div>
+<div class="pages">
+	<div class="page with-subnavbar navbar-through" data-page="accessConLeader" id="accessConLeader">
+		<div class="page-content"  style="overflow: hidden;">
+			
+			<div class="content-block barDownCh" >
+				<div class="buttons-row">
+		            <a href="#mj" class="button  tab-link active">
+		            	 <span>门禁控制</span>
+		            </a>
+		            
+		            <a href="#sp" class="button  tab-link" >
+		            	<span>权限审批</span>
+		            	
+		            </a>
+		        </div>
+			</div>
+			<div class="tabs" style="height: 90%;">
+				<div id="mj" class="tab active" style="height: 100%;">
+					<div class="row no-gutter swiWrap" style="background: #fff;">
+						<div class="col-10 btn preSide" >
+							<i class="iconfont icon-sanjiao-xiangshang"></i>
+						</div>
+						<div class="col-80" style="overflow: hidden;">
+							<div class="swiperWrap" style="background: #fff;">
+								<div class="swiper-wrapper">
+								    <div class="swiper-slide check" id="1">1层</div>
+								    <div class="swiper-slide" id="2">2层</div>
+								    <div class="swiper-slide" id="11">11层</div>
+								    <div class="swiper-slide" id="12">12层</div>
+								    <div class="swiper-slide" id="13">13层</div>
+								    <div class="swiper-slide" id="14">14层</div>
+								    <div class="swiper-slide" id="15">15层</div>
+								    <div class="swiper-slide" id="16">16层</div>
+								    <div class="swiper-slide" id="17">17层</div>
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-10 btn nextSide" >
+							<i class="iconfont icon-sanjiao-xiangshang-copy"></i>
+						</div>
+					</div>
+					<div class="row no-gutter tit">
+						<div class="col col-15">状态</div>
+						<div class="col col-25">名称</div>
+						<div class="col col-20">远程开关</div>
+						<div class="col col-20">门常开</div>
+						<div class="col col-20">门常关</div>
+					</div>
+					<div class="cont"></div>
+				
+				</div>
+				<div id="sp" class="tab pull-to-refresh-content" style="height: 100%;" data-ptr-distance="55">
+					<div class="memChoose" >
+						<div class="memCon">
+							<p>申请详情</p>
+							<div class="con">
+								<div class="row">
+									<div class="col-30">
+										申请时间
+									</div>
+									<div class="col-70 time">
+										
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-30">
+										权限描述
+									</div>
+									<div class="col-70 text">
+										
+									</div>
+								</div>
+							</div>
+							<div class="btn">
+								<button class="button button-big button-fill bg-red" onclick="noAgree()">不同意</button>
+								<button class="button button-big button-fill" onclick="agree()">同意</button>
+							</div>
+						</div>
+					</div>
+					<div class="pull-to-refresh-layer" style="position: absolute;">
+					      <div class="preloader"></div>
+					      <div class="pull-to-refresh-arrow"></div>
+					    </div>
+					<input type="hidden" value="0" id="proId"/>
+					
+					<div class="labelItem row">
+						<div class="col-33">
+							申请人
+						</div>
+						<div class="col-33">
+							权限类型
+						</div>
+						<div class="col-33">
+							审批结果
+						</div>
+					</div>
+					<div class="itemList" >
+						<div class="con">
+							
+						</div>
+					</div>
+						</div>
+					</div>
+		</div>
+	</div>
+</div>

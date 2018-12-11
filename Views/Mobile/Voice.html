@@ -1,0 +1,49 @@
+﻿<div class="navbar">
+    <div class="navbar-inner notHomeBar">
+    	<div class="left">
+			<a href="#" class="link back icon-only">
+				<i class="iconfont icon-xiangzuo"></i>返回
+			</a>
+		</div>
+        <div class="center sliding">语音系统</div>
+        <div class="right">
+          
+        </div>
+    </div>
+</div>
+<div class="pages">
+    <div data-page="Voice" class="page mobileNotSelect" id="Voice">
+        <div class="page-content">
+        	<div class="list-block">
+			  <ul>
+			    <li onclick="onVoiceList(this)">
+			      <label class="label-radio item-content">
+			        <input type="radio" name="my-radio" value="0" checked="checked">
+			        <div class="item-inner">
+			          <div class="item-title">百度语音</div>
+			        </div>
+			      </label>
+			    </li>
+			    <li onclick="onVoiceList(this)">
+			      <label class="label-radio item-content">
+			        <input type="radio" name="my-radio" value="1">
+			        <div class="item-inner">
+			          <div class="item-title">讯飞语音</div>
+			        </div>
+			      </label>
+			    </li>
+			  </ul>
+			</div>   
+            
+            
+            <div class="voiceDivs flexBoxs">
+                <div class="voiceDiv">
+                    <div id="voiceMessage" class="voiceTitle">按住说话</div>
+                    <div id="waveAnim" class="waveAnim" style="display:none;"><i></i><i></i><i></i><i></i><i></i></div>
+                    <div class="voice" id="voiceBtn"><i class="iconfont icon-yuyin2"></i></div>
+                    <div class="voicetest"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
